@@ -10,4 +10,8 @@ describe DockingStation do
     # Assert
     expect(bike.working?).to eq(true)
   end
+
+  it 'can dock a bike' do
+   expect(DockingStation.new).to respond_to :dock 
+  end
 end
