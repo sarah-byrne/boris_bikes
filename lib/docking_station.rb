@@ -7,7 +7,11 @@ class DockingStation
   end
 
   def release_bike
-    Bike.new
+    if @bike == nil
+      raise "No bikes, mate!"
+    else
+      Bike.new
+    end
   end
 
   def dock(bike)

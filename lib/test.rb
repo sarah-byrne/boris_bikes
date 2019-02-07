@@ -3,5 +3,6 @@ require "./lib/bike"
 
 bike = Bike.new
 docking_station = DockingStation.new
-docking_station.dock(bike)
-docking_station.bike
+# docking_station.dock(bike)
+# docking_station.bike
+docking_station.release_bike
