@@ -7,14 +7,22 @@ class DockingStation
   end
 
   def release_bike
-    if @bike == nil
-      raise "No bikes, mate!"
-    else
-      Bike.new
-    end
+    raise "No bikes, mate!" unless @bike
+    @bike
+    # if @bike == nil
+    #   raise "No bikes, mate!"
+    # else
+    #   Bike.new
+    # end
   end
 
   def dock(bike)
+    raise "Docking station is full mate!!" if @bike
     @bike = bike
+    # if @bike != nil
+    #   raise "Docking station is full mate!!"
+    # else
+    #   @bike = bike
+    # end
   end
 end
