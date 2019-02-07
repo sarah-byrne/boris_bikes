@@ -8,8 +8,8 @@ class DockingStation
   end
 
   def release_bike
-    raise "No bikes, mate!" unless @bikes
-    @bikes
+    raise "No bikes, mate!" unless @bikes.count > 0
+    @bikes.pop
     # if @bike == nil
     #   raise "No bikes, mate!"
     # else
