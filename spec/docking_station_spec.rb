@@ -1,18 +1,19 @@
 require 'docking_station'
 
-
 describe DockingStation do
 
   it { is_expected.to respond_to :release_bike }
+
   it { is_expected.to respond_to(:dock).with(1).argument }
+  
   it 'docks something' do
-    bike = Bike.new
-    expect(subject.dock(bike)).to eq [bike]
+    expect(subject.dock(Bike.new)).to eq [bike]
   end
+
   it { is_expected.to respond_to(:bikes) }
-  # it { is_expected.to }
+
   it "raises an error when no bikes are available" do
-    expect { subject.bikes.count == 0 }.to raise_error.with_message("No bikes, mate!")
+      expect { subject.release_bike }.to raise_error.with_message("No bikes, mate!")
   end
 
   it "doesn't accept more bikes than its capacity" do

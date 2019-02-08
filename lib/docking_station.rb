@@ -10,20 +10,10 @@ class DockingStation
   def release_bike
     raise "No bikes, mate!" unless @bikes.count > 0
     @bikes.pop
-    # if @bike == nil
-    #   raise "No bikes, mate!"
-    # else
-    #   Bike.new
-    # end
   end
 
   def dock(bike)
     raise "Docking station is full mate!!" if @bikes.count == 20
     @bikes.push(bike)
-    # if @bike != nil
-    #   raise "Docking station is full mate!!"
-    # else
-    #   @bike = bike
-    # end
   end
 end
