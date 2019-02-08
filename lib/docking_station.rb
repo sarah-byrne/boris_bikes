@@ -3,9 +3,12 @@ require './lib/bike'
 class DockingStation
   attr_reader :bikes
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
+
+  DEFAULT_CAPACITY = 20
 
   def release_bike
     raise "No bikes, mate!" if empty?
@@ -19,7 +22,7 @@ class DockingStation
 
   private
   def full?
-    @bikes.count == 20
+    @bikes.count == @capacity
   end
 
   def empty?

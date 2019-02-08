@@ -18,8 +18,14 @@ describe DockingStation do
   end
 
   it "doesn't accept more bikes than its capacity" do
-    20.times { subject.dock(Bike.new) }
+    DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
     expect { subject.dock(Bike.new) }.to raise_error.with_message("Docking station is full mate!!")
+  end
+
+  it "accepts a higher capacity when requested" do
+    docking_station = DockingStation.new(40)
+    40.times { docking_station.dock(Bike.new) }
+    expect { docking_station.dock(Bike.new) }.to raise_error.with_message("Docking station is full mate!!")
   end
 
 end
